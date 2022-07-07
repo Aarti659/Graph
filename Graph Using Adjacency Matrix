@@ -1,0 +1,60 @@
+//C++ Program to implement Adjacency Matrix
+
+#include<iostream.h>
+
+#include<iomanip.h>
+ 
+using namespace std;
+ 
+
+void PrintMatrix(int mat[][20], int n)
+{
+	int j, k;
+ 
+	cout<<"\n\n"<<setw(4)<<"";
+	for(j = 0; j < n; j++)
+		cout<<setw(3)<<"("<<j+1<<")";
+	cout<<"\n\n";
+ 
+	
+	for(j = 0; j < n; j++)
+	{
+		cout<<setw(3)<<"("<<j+1<<")";
+		for(k = 0; k < n; k++)
+		{
+			cout<<setw(4)<<mat[j][k];
+		}
+		cout<<"\n\n";
+	}
+}
+ 
+int main()
+{
+	int j, k, v;
+ 
+	cout<<"Enter the number of vertexes: ";
+	cin>>v;
+ 
+	int  mat[20][20];
+ 
+	cout<<"\n";
+	
+	for(j = 0; j < v; j++)
+	{
+		for(k = j; k < v; k++)
+		{
+			if(j != k)
+			{
+				cout<<"Enter 1 if the vertex "<<j+1<<" is adjacent to "<<k+1<<", otherwise 0: ";
+				cin>>mat[j][k];
+ 
+				mat[k][j] = mat[j][k];
+			}
+			else
+				mat[j][k] = 0;
+		}
+	}
+ 
+	PrintMatrix(mat, v);
+}
+
